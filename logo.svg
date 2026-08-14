@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#ffd21a"/><stop offset="1" stop-color="#fff"/></linearGradient></defs>
+<rect width="220" height="70" rx="14" fill="#071b4c"/>
+<path d="M18 25l24-10 24 10-24 10z" fill="#ffd21a"/><path d="M25 29v17c10 7 20 7 34 0V29" fill="none" stroke="#ffd21a" stroke-width="3"/>
+<text x="63" y="40" font-family="Arial,sans-serif" font-size="28" font-weight="900" fill="url(#g)">5tar</text>
+<text x="133" y="40" font-family="Arial,sans-serif" font-size="28" font-weight="900" fill="#fff">Result</text>
+<text x="66" y="56" font-family="Arial,sans-serif" font-size="7" fill="#dce7ff">JOBS • EXAMS • STUDY • SUCCESS</text>
+</svg>

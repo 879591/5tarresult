@@ -1,27 +1,18 @@
-# 5tarResult
+# 5tarResult Premium UI
+Files:
+- index.html
+- style.css
+- script.js
+- logo.svg
 
-Jobs + Exams + Study Material + Quiz/Mock Tests platform built with Next.js and Supabase.
+This version follows the supplied UI reference: dark navy header, colorful hero, login card, quick categories, dashboard panels, jobs, study material, mock tests, results, AI help and founder credit.
 
-## Run locally / Codespaces
+Supabase:
+- Uses the publishable key in script.js.
+- Email/password login and signup are wired.
+- Phone OTP code is included; enable Phone provider + SMS provider in Supabase before using it.
+- Public sections remain accessible without login.
+- Save Job / Mock Test actions request login.
 
-```bash
-npm install
-npm run dev
-```
-
-Then open the development URL shown by Next.js.
-
-## Supabase
-
-Create `.env.local` from `.env.example`:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
-```
-
-Do not put the Supabase secret key in frontend code.
-
-## Deploy
-
-Push the repository to GitHub and import the repository into Vercel. Add the same two environment variables in Vercel Project Settings → Environment Variables.
+Important:
+For production, add your live Vercel domain under Supabase Authentication > URL Configuration and use HTTPS.

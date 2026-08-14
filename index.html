@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="5tarResult - Jobs, Exams, Study Material, Admissions, Results and Mock Tests">
+  <title>5tarResult — Jobs • Exams • Study • Success</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="5tarResult Home">
+      <img src="logo.svg" alt="5tarResult logo">
+      <div>
+        <strong><span>5tar</span>Result</strong>
+        <small>Jobs • Exams • Study • Success</small>
+      </div>
+    </a>
+
+    <nav class="desktop-nav">
+      <a class="active" href="#home">⌂ <span>Home</span></a>
+      <a href="#classes">▣ <span>Classes⌄</span></a>
+      <a href="#admissions">♜ <span>Admissions⌄</span></a>
+      <a href="#jobs">▣ <span>Jobs⌄</span></a>
+      <a href="#exams">♜ <span>Exams⌄</span></a>
+      <a href="#quiz">☑ <span>Mock Tests</span></a>
+      <a href="#study">▤ <span>Study Material</span></a>
+      <a href="#results">▣ <span>Results</span></a>
+      <a href="#ai">✦ <span>AI Help</span></a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" aria-label="Search" onclick="showToast('Search जल्द connect होगा')">⌕</button>
+      <button class="icon-btn" aria-label="Notifications" onclick="scrollToSection('notifications')">♧</button>
+      <button class="btn login-btn" onclick="openLogin('login')">Login</button>
+      <button class="btn signup-btn" onclick="openLogin('signup')">Sign Up</button>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-glow glow-a"></div><div class="hero-glow glow-b"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="pill">🚀 Student First Platform</div>
+      <h1><span>5tar</span>Result</h1>
+      <h2>आपके सपनों की <em>तैयारी</em>, एक ही जगह!</h2>
+      <div class="hero-links">💼 Jobs <b>|</b> 🏆 Exams <b>|</b> 📚 Study <b>|</b> 🧠 Mock Tests <b>|</b> 📊 Results <b>|</b> 🏫 Admissions</div>
+      <p>सरकारी नौकरी, Exam की तैयारी, Study Material और Mock Tests — सबकुछ एक जगह, तेज और आसान तरीके से।</p>
+      <div class="actions">
+        <a class="btn explore" href="#jobs">⌕ Explore Now →</a>
+        <a class="btn watch" href="#study">▷ Watch Intro</a>
+      </div>
+      <div class="creator">
+        <span>By</span>
+        <strong>Suraj Maurya</strong>
+        <small>Founder & Creator • Made with ❤️ in India 🇮🇳</small>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="paint"></div>
+      <div class="student-avatar" aria-label="Student illustration">
+        <div class="avatar-head"></div><div class="avatar-body">5★</div>
+        <div class="book b1"></div><div class="book b2"></div><div class="book b3"></div>
+      </div>
+      <div class="quote">“Study Hard,<br><strong>Dream Big,</strong><br>Achieve More!”</div>
+      <div class="crown">♕</div>
+    </div>
+
+    <div class="auth-card" id="authCard">
+      <div class="auth-tabs">
+        <button class="tab active" onclick="switchAuth('login')">Login</button>
+        <button class="tab" onclick="switchAuth('signup')">Sign Up</button>
+      </div>
+
+      <div id="loginPanel">
+        <h3>Welcome Back! 👋</h3>
+        <p>आगे बढ़ने के लिए Login करें</p>
+        <input id="loginEmail" type="email" placeholder="Email / Username">
+        <div class="password-wrap"><input id="loginPassword" type="password" placeholder="Password"><button onclick="togglePassword('loginPassword')">◉</button></div>
+        <div class="auth-row"><label><input type="checkbox" id="remember"> Remember me</label><button class="link-btn" onclick="forgotPassword()">Forgot Password?</button></div>
+        <button class="btn primary full" onclick="emailLogin()">Login →</button>
+        <div class="or">or continue with</div>
+        <div class="social-auth"><button onclick="showToast('Google login के लिए Supabase OAuth provider ON करें')">G</button><button onclick="switchAuth('phone')">☎</button><button onclick="showToast('Phone OTP panel नीचे खुल गया')">✦</button></div>
+        <p class="new-user">New here? <button class="link-btn" onclick="switchAuth('signup')">Create an account</button></p>
+      </div>
+
+      <div id="signupPanel" class="hidden">
+        <h3>Create Account 🚀</h3>
+        <p>अपना 5tarResult account बनाइए</p>
+        <input id="signupName" type="text" placeholder="Full Name">
+        <input id="signupEmail" type="email" placeholder="Email">
+        <div class="password-wrap"><input id="signupPassword" type="password" placeholder="Password"><button onclick="togglePassword('signupPassword')">◉</button></div>
+        <div class="password-wrap"><input id="signupConfirm" type="password" placeholder="Confirm Password"><button onclick="togglePassword('signupConfirm')">◉</button></div>
+        <div class="profile-mini">
+          <input id="signupDob" type="date" title="Date of Birth">
+          <select id="signupClass"><option value="">Class</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select>
+        </div>
+        <select id="signupQualification"><option value="">Qualification</option><option>Class 8 Pass</option><option>10th Pass</option><option>12th Pass</option><option>ITI</option><option>Diploma</option><option>Graduation</option><option>Post Graduation</option></select>
+        <button class="btn primary full" onclick="emailSignup()">Create Account →</button>
+        <p class="new-user">Already have an account? <button class="link-btn" onclick="switchAuth('login')">Login</button></p>
+      </div>
+
+      <div id="phonePanel" class="hidden">
+        <h3>Phone OTP 📱</h3>
+        <p>Mobile number से secure login</p>
+        <input id="phoneNumber" type="tel" placeholder="+91 9876543210">
+        <button class="btn primary full" onclick="sendPhoneOtp()">Send OTP</button>
+        <input id="phoneOtp" class="hidden" type="text" inputmode="numeric" placeholder="Enter OTP">
+        <button id="verifyOtpBtn" class="btn secondary full hidden" onclick="verifyPhoneOtp()">Verify OTP</button>
+        <button class="link-btn back-auth" onclick="switchAuth('login')">← Back to Login</button>
+      </div>
+
+      <p id="authMsg" class="auth-msg"></p>
+    </div>
+  </div>
+</section>
+
+<section class="quick-nav wrap">
+  <a href="#classes"><span>🎓</span><b>Class 6-12</b></a>
+  <a href="#admissions"><span>🏫</span><b>Navodaya</b></a>
+  <a href="#jobs"><span>💼</span><b>10th Jobs</b></a>
+  <a href="#jobs"><span>🧳</span><b>12th Jobs</b></a>
+  <a href="#exams"><span>🏆</span><b>Competitive</b></a>
+  <a href="#quiz"><span>📋</span><b>Mock Test</b></a>
+  <a href="#study"><span>📚</span><b>Study Material</b></a>
+  <a href="#results"><span>📊</span><b>Results</b></a>
+  <a href="#ai"><span>🤖</span><b>AI Help</b></a>
+</section>
+
+<section class="stats wrap">
+  <div><span>👥</span><strong>25K+</strong><small>Students</small></div>
+  <div><span>📄</span><strong>5K+</strong><small>Study Materials</small></div>
+  <div><span>🏆</span><strong>2K+</strong><small>Mock Tests</small></div>
+  <div><span>🔔</span><strong>24/7</strong><small>Latest Updates</small></div>
+</section>
+
+<section id="notifications" class="wrap section dashboard-grid">
+  <div class="panel">
+    <div class="panel-head"><h2>🔔 Latest Notifications</h2><button onclick="showToast('Notifications database से connect होंगे')">View All</button></div>
+    <div class="notice-list">
+      <button onclick="showToast('Notification details जल्द आएंगे')"><b>SSC CGL</b><span>Recruitment & exam updates</span><em>NEW</em>›</button>
+      <button onclick="showToast('Notification details जल्द आएंगे')"><b>Railway</b><span>RRB recruitment updates</span><em>NEW</em>›</button>
+      <button onclick="showToast('Notification details जल्द आएंगे')"><b>UP Police</b><span>Constable / state updates</span><em>NEW</em>›</button>
+      <button onclick="showToast('Notification details जल्द आएंगे')"><b>Navodaya Class 6</b><span>Admission updates</span><em>NEW</em>›</button>
+    </div>
+  </div>
+
+  <div class="panel" id="exams">
+    <div class="panel-head"><h2>🏆 Popular Exams</h2><button>View All</button></div>
+    <div class="color-grid">
+      <a href="#exams">UPSC</a><a href="#exams">SSC</a><a href="#exams">Railway</a><a href="#exams">Banking</a>
+      <a href="#exams">Police</a><a href="#exams">Defence</a><a href="#exams">Teaching</a><a href="#exams">State Exams</a><a href="#exams">CUET/NEET</a>
+    </div>
+  </div>
+
+  <div class="panel" id="classes">
+    <div class="panel-head"><h2>📚 Class 6-12</h2><button>View All</button></div>
+    <div class="class-grid">
+      <a href="#study">Class 6</a><a href="#study">Class 7</a><a href="#study">Class 8</a>
+      <a href="#study">Class 9</a><a href="#study">Class 10</a><a href="#study">Class 11</a>
+      <a href="#study">Class 12</a><a href="#study">Notes</a><a href="#study">Model Paper</a>
+    </div>
+  </div>
+
+  <div class="panel" id="admissions">
+    <div class="panel-head"><h2>🏫 Admissions</h2><button>View All</button></div>
+    <div class="admission-grid">
+      <button onclick="showToast('Navodaya details जल्द connect होंगे')">🧑‍🎓 <b>Navodaya</b><small>Class 6 & 9</small></button>
+      <button onclick="showToast('School admissions जल्द connect होंगे')">🏫 <b>School</b><small>All Classes</small></button>
+      <button onclick="showToast('College admissions जल्द connect होंगे')">🎓 <b>College</b><small>UG / PG</small></button>
+      <button onclick="showToast('Entrance exams जल्द connect होंगे')">📝 <b>Entrance</b><small>JEE / NEET / CUET</small></button>
+    </div>
+  </div>
+</section>
+
+<section id="jobs" class="wrap section">
+  <div class="section-title"><div><label>CAREER</label><h2>Latest Government Jobs</h2><p>10th Pass, 12th Pass, ITI, Diploma और Graduation के हिसाब से vacancies.</p></div><button class="btn outline" onclick="showToast('Jobs database अगले चरण में connect होगा')">View All →</button></div>
+  <div class="cards">
+    <article class="job-card"><div class="job-icon">🏛️</div><div><span class="tag">10th Pass</span><h3>SSC Recruitment</h3><p>Eligibility, dates, syllabus और apply details.</p><button onclick="requireLogin('Save Job')">☆ Save Job</button></div></article>
+    <article class="job-card"><div class="job-icon">🚆</div><div><span class="tag">10th / 12th</span><h3>Railway Recruitment</h3><p>RRB vacancy updates और important dates.</p><button onclick="requireLogin('Save Job')">☆ Save Job</button></div></article>
+    <article class="job-card"><div class="job-icon">👮</div><div><span class="tag">12th Pass</span><h3>Police Recruitment</h3><p>Police और state recruitment updates.</p><button onclick="requireLogin('Save Job')">☆ Save Job</button></div></article>
+  </div>
+</section>
+
+<section id="study" class="wrap section">
+  <div class="section-title"><div><label>LEARN</label><h2>Study Material</h2><p>Class 6-12 और competitive exams के notes, MCQ और practice.</p></div></div>
+  <div class="cards">
+    <article class="study-card"><span>📖</span><h3>General Knowledge</h3><p>Notes और important topics.</p><button onclick="showToast('Study material जल्द connect होगा')">Open Material →</button></article>
+    <article class="study-card"><span>🧠</span><h3>Reasoning</h3><p>Practice questions और tricks.</p><button onclick="showToast('Study material जल्द connect होगा')">Open Material →</button></article>
+    <article class="study-card"><span>🔢</span><h3>Quantitative Aptitude</h3><p>Formula और practice sets.</p><button onclick="showToast('Study material जल्द connect होगा')">Open Material →</button></article>
+  </div>
+</section>
+
+<section id="quiz" class="wrap section">
+  <div class="success-strip">
+    <div><span>🏆</span><div><b>Start Your <em>Success Journey</em> Today!</b><small>Learn • Practice • Track • Achieve</small></div></div>
+    <button class="btn yellow" onclick="requireLogin('Mock Test')">Join 5tarResult →</button>
+  </div>
+  <div class="quiz-cta">
+    <div><label>PRACTICE</label><h2>Daily Quiz & Mock Tests 🧠</h2><p>Mock Test देने के लिए Login जरूरी है, ताकि आपका score और attempts save रह सकें।</p></div>
+    <button class="btn primary" onclick="requireLogin('Mock Test')">Start Mock Test →</button>
+  </div>
+</section>
+
+<section id="results" class="wrap section result-box">
+  <div><label>RESULTS</label><h2>Results & Score Check</h2><p>Exam result updates public रहेंगे। Personal test history के लिए Login जरूरी होगा।</p><button class="btn outline" onclick="showToast('Result search module जल्द connect होगा')">Check Result →</button></div>
+</section>
+
+<section id="ai" class="wrap section ai-box">
+  <div class="ai-orb">✦</div><div><label>SMART ASSISTANT</label><h2>5tar AI Help 🤖</h2><p>Exam, syllabus, study plan और preparation से जुड़े सवाल पूछें।</p></div>
+  <button class="btn primary" onclick="showToast('AI Assistant अगले चरण में connect होगा')">Ask AI →</button>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand"><img src="logo.svg" alt="5tarResult"><div><strong><span>5tar</span>Result</strong><small>Jobs • Exams • Study • Success</small></div><p>Education और opportunity को एक जगह जोड़ने का प्रयास।</p><b>Founder & Creator: Suraj Maurya</b></div>
+    <div><h4>Quick Links</h4><a href="#jobs">Jobs</a><a href="#exams">Exams</a><a href="#study">Study Material</a><a href="#results">Results</a></div>
+    <div><h4>Support</h4><a href="#ai">AI Help</a><a href="#notifications">Notifications</a><button onclick="openLogin('login')">Login</button><button onclick="openLogin('signup')">Create Account</button></div>
+    <div><h4>Follow 5tarResult</h4><div class="socials"><a href="https://youtube.com/@suraj5tar?si=alMlu9OAzlWay8uF" target="_blank">▶</a><a href="https://www.instagram.com/5tar.suraj?igsh=OWZjNXhyb2toanZk" target="_blank">◎</a><a href="https://www.facebook.com/share/1EZnDK3ztS/" target="_blank">f</a></div><p class="creator-sign">Designed & Developed by<br><strong>Suraj Maurya</strong></p></div>
+  </div>
+  <div class="copy">© 2026 5tarResult • All Rights Reserved • Made with ❤️ in India 🇮🇳</div>
+</footer>
+
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-card">
+    <button class="close" onclick="closeLogin()">×</button>
+    <div id="modalLogin"><h2>Login to <span>5tarResult</span></h2><p>Save Job, Mock Test और Profile के लिए Login करें।</p>
+      <input id="modalEmail" type="email" placeholder="Email">
+      <input id="modalPassword" type="password" placeholder="Password">
+      <button class="btn primary full" onclick="emailLogin('modal')">Login →</button>
+      <button class="link-btn full-link" onclick="forgotPassword('modal')">Forgot Password?</button>
+      <p>New user? <button class="link-btn" onclick="showSignupModal()">Create account</button></p>
+    </div>
+    <div id="modalSignup" class="hidden"><h2>Create <span>5tarResult</span> Account</h2>
+      <input id="modalName" placeholder="Full Name">
+      <input id="modalSignupEmail" type="email" placeholder="Email">
+      <input id="modalSignupPassword" type="password" placeholder="Password">
+      <input id="modalSignupConfirm" type="password" placeholder="Confirm Password">
+      <div class="profile-mini"><input id="modalDob" type="date"><select id="modalClass"><option value="">Class</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div>
+      <select id="modalQualification"><option value="">Qualification</option><option>10th Pass</option><option>12th Pass</option><option>ITI</option><option>Diploma</option><option>Graduation</option></select>
+      <button class="btn primary full" onclick="emailSignup('modal')">Create Account →</button>
+      <p>Already registered? <button class="link-btn" onclick="showLoginModal()">Login</button></p>
+    </div>
+    <p id="modalMsg" class="auth-msg"></p>
+  </div>
+</div>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
