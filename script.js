@@ -1,6 +1,3 @@
-function openLogin(){
-...
-}
 const SUPABASE_URL = 'https://satumsjfmpbjofhixkdi.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_3tW--DUKTpPokk7hSbqbQg_2hoEbANM';
 
@@ -16,42 +13,67 @@ async function initSupabase() {
       SUPABASE_KEY
     );
 
-    console.log('✅ Supabase connected');
+    console.log('✅ 5tarResult: Supabase Connected');
 
     const { data } = await supabaseClient.auth.getSession();
 
     if (data.session) {
-      console.log('✅ User logged in:', data.session.user.email);
+      console.log('Logged in:', data.session.user.email);
     }
 
   } catch (error) {
-    console.error('❌ Supabase connection error:', error);
+    console.error('Supabase error:', error);
   }
 }
 
+
+// =========================
+// LOGIN MODAL
+// =========================
+
 function openLogin() {
-  document.getElementById('modal').classList.add('show');
+  const modal = document.getElementById('modal');
+
+  if (modal) {
+    modal.classList.add('show');
+  }
 }
 
 function closeLogin() {
-  document.getElementById('modal').classList.remove('show');
+  const modal = document.getElementById('modal');
+
+  if (modal) {
+    modal.classList.remove('show');
+  }
 }
+
+
+// =========================
+// LOGIN WITH EMAIL
+// =========================
 
 async function demoLogin() {
 
   const emailInput = document.getElementById('email');
   const msg = document.getElementById('msg');
 
+  if (!emailInput || !msg) return;
+
   const email = emailInput.value.trim();
 
   if (!email) {
-    msg.textContent = '❌ Email डालें';
+    msg.textContent = '❌ अपना email डालें';
     return;
   }
 
   if (!supabaseClient) {
-    msg.textContent = '⏳ Supabase connect हो रहा है...';
+    msg.textContent = '⏳ Connecting...';
     await initSupabase();
+  }
+
+  if (!supabaseClient) {
+    msg.textContent = '❌ Supabase connect नहीं हुआ';
+    return;
   }
 
   try {
@@ -80,6 +102,11 @@ async function demoLogin() {
   }
 }
 
+
+// =========================
+// LOGOUT
+// =========================
+
 async function logout() {
 
   if (!supabaseClient) return;
@@ -89,9 +116,16 @@ async function logout() {
   location.reload();
 }
 
+
+// =========================
+// DEMO QUIZ
+// =========================
+
 function startQuiz() {
 
   const q = document.getElementById('quizBox');
+
+  if (!q) return;
 
   q.innerHTML = `
     <div class="question">
@@ -120,16 +154,32 @@ function startQuiz() {
   });
 }
 
+
 function answer() {
 
-  document.getElementById('result').textContent =
-    '✅ सही उत्तर!';
+  const result = document.getElementById('result');
+
+  if (result) {
+    result.textContent = '✅ सही उत्तर!';
+  }
 }
+
 
 function wrong() {
 
-  document.getElementById('result').textContent =
-    '❌ गलत उत्तर — सही उत्तर 26 जनवरी 1950 है।';
+  const result = document.getElementById('result');
+
+  if (result) {
+    result.textContent =
+      '❌ गलत उत्तर — सही उत्तर 26 जनवरी 1950 है।';
+  }
 }
 
-window.addEventListener('load', initSupabase);
+
+// =========================
+// START
+// =========================
+
+window.addEventListener('load', function () {
+  initSupabase();
+});
